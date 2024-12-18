@@ -111,9 +111,9 @@ Data attribute | Optional | Description
 -|-|-
 `target_device` | no| SpeakerHub device ID for audio playback.
 `message` | no| Text for speech conversion.
-`tone` | yes| Tone before playing audio (if unset, no tone is played).
-`volume` | yes| Speaker volume during playback (if unset, the global volume is used).
-`repeat` | yes| The number of times the text will be repeated (if unset, will not repeat).
+`tone` | yes| Tone before playing audio.
+`volume` | yes| Override the speaker volume during playback of this message only.
+`repeat` | yes| The number of times the text will be repeated.
 
 ## Community notes
 
