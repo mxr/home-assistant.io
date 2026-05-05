@@ -1424,6 +1424,21 @@ select:
     - Blue
 ```
 
+To allow users to search existing options without accepting custom values, set
+`searchable` to `true`.
+
+```yaml
+select:
+  options:
+    - Account 1
+    - Account 2
+    - Account 3
+    - Account 4
+    - Account 5
+    - Account 6
+  searchable: true
+```
+
 {% configuration select %}
 options:
   description: >
@@ -1440,7 +1455,18 @@ multiple:
 custom_value:
   description: >
     Allows the user to enter and select a custom value (or multiple custom values
-    in addition to the listed options if `multiple` is set to `true`).
+    in addition to the listed options if `multiple` is set to `true`). This option
+    implies `searchable`, so when it's `true`, `searchable` cannot be `false`.
+  type: boolean
+  required: false
+  default: false
+searchable:
+  description: >
+    Allows the user to search the listed options (without allowing custom values).
+    This applies to dropdown lists. Small lists (5 items or less) are still
+    displayed as radio buttons unless `mode` is set to `dropdown`. `custom_value`
+    implies this option, so when `custom_value` is `true`, this value cannot be
+    `false`.
   type: boolean
   required: false
   default: false
@@ -1530,7 +1556,7 @@ multiple:
     Allows selecting multiple states. If set to `true`, the resulting value of
     this selector will be a list instead of a single string value.
   type: boolean
-  default: false  
+  default: false
 {% endconfiguration %}
 
 The output of this selector is the select state (not the translated or
